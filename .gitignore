@@ -2,6 +2,6 @@
 .settings
 .project
 .classpath
-
+src/review/dal/ConnectionManager.java
 WebContent/META-INF
 WebContent/WEB-INF/lib

@@ -50,7 +50,10 @@ public class ProductCreate extends HttpServlet {
         	String productName = req.getParameter("productname");
         	String description = req.getParameter("description");
         	String brandName = req.getParameter("brandname");
-        	Double price = Double.valueOf(req.getParameter("price"));
+        	Double price = 0.0;
+        	if (!req.getParameter("price").isEmpty()) {
+        		price = Double.valueOf(req.getParameter("price"));
+        	}
         	Brands brand = null;
         	try {
         		brand = brandsDao.getBrandByBrandName(brandName);

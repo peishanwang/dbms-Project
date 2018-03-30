@@ -8,26 +8,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Update a Brand</title>
+<title>Delete a Product</title>
 </head>
 <body>
-	<h1>Update Brand</h1>
-	<form action="brandupdate" method="post">
+	<h1>${messages.title}</h1>
+	<form action="productdelete" method="post">
 		<p>
-			<label for="brandname">BrandName</label>
-			<input id="brandname" name="brandname" value="${fn:escapeXml(param.brandname)}">
+			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+				<label for="productid">ProductId</label>
+				<input id="productid" name="productid" value="${fn:escapeXml(param.productid)}">
+			</div>
 		</p>
 		<p>
-			<label for="description">New Description</label>
-			<input id="description" name="description" value="${brand.getDescription()}">
-		</p>
-		<p>
+			<span id="submitButton" <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<input type="submit">
+			</span>
 		</p>
 	</form>
 	<br/><br/>
-	<p>
-		<span id="successMessage"><b>${messages.success}</b></span>
-	</p>
+	
 </body>
 </html>

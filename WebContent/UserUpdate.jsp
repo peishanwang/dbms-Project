@@ -8,18 +8,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Update a Brand</title>
+<title>Update a User</title>
 </head>
 <body>
-	<h1>Update Brand</h1>
-	<form action="brandupdate" method="post">
+	<h1>Update User</h1>
+	<form action="userupdate" method="post">
 		<p>
-			<label for="brandname">BrandName</label>
-			<input id="brandname" name="brandname" value="${fn:escapeXml(param.brandname)}">
+			<label for="username">UserName</label>
+			<input id="username" name="username" value="${fn:escapeXml(param.username)}">
 		</p>
 		<p>
-			<label for="description">New Description</label>
-			<input id="description" name="description" value="${brand.getDescription()}">
+			<label for="firstname">New FirstName</label>
+			<input id="firstname" name="firstname" value="${user.getFirstName()}">
+		</p>
+		<p>
+			<label for="lastname">New LastName</label>
+			<input id="lastname" name="lastname" value="${user.getLastName()}">
 		</p>
 		<p>
 			<input type="submit">
