@@ -19,6 +19,12 @@ public class Inserter {
         ProductsDao productsDao = ProductsDao.getInstance();
         ReviewCommentsDao reviewCommentsDao = ReviewCommentsDao.getInstance();
         
+        QuestionsDao questionsDao = QuestionsDao.getInstance();
+        AnswersDao answersDao = AnswersDao.getInstance();
+        FavoritesDao favoritesDao = FavoritesDao.getInstance();
+        RecommendationsDao recommendationsDao = RecommendationsDao.getInstance();
+        
+        
         // CREATE
         Users user = new Users("a","Alice","Nv");
         user = usersDao.create(user);
@@ -105,7 +111,49 @@ public class Inserter {
         reviewComment5 = reviewCommentsDao.create(reviewComment5);
         
         
-        // READ
+        Questions question = new Questions(1, "content", date, product, user);
+        questionsDao.create(question);
+        Questions question2 = new Questions(2, "content2", date, product2, user2);
+        questionsDao.create(question2);
+        Questions question3 = new Questions(3, "content3", date, product3, user3);
+        questionsDao.create(question3);
+        Questions question4 = new Questions(4, "content4", date, product, user4);
+        questionsDao.create(question4);
+        Questions question5 = new Questions(5, "content5", date, product, user5);
+        questionsDao.create(question5);
+        
+        Answers answer = new Answers(1, "content", date, question, user3);
+        answersDao.create(answer);
+        Answers answer2 = new Answers(2, "content2", date, question3, user4);
+        answersDao.create(answer2);
+        Answers answer3 = new Answers(3, "content3", date, question3, user);
+        answersDao.create(answer3);
+        Answers answer4 = new Answers(4, "content4", date, question, user5);
+        answersDao.create(answer4);
+        Answers answer5 = new Answers(5, "content5", date, question, user6);
+        answersDao.create(answer5);
+        
+        Recommendations recommendation = new Recommendations(1, user3, product);
+        recommendationsDao.create(recommendation);
+        Recommendations recommendation2 = new Recommendations(2, user4, product2);
+        recommendationsDao.create(recommendation2);
+        Recommendations recommendation3 = new Recommendations(3, user, product);
+        recommendationsDao.create(recommendation3);
+        Recommendations recommendation4 = new Recommendations(4, user5, product3);
+        recommendationsDao.create(recommendation4);
+        Recommendations recommendation5 = new Recommendations(5, user6, product4);
+        recommendationsDao.create(recommendation5);
+        
+        Favorites favorite = new Favorites(1, product, user);
+        favoritesDao.create(favorite);
+        Favorites favorite2 = new Favorites(2, product2, user);
+        favoritesDao.create(favorite2);
+        Favorites favorite3 = new Favorites(3, product3, user3);
+        favoritesDao.create(favorite3);
+        Favorites favorite4 = new Favorites(4, product4, user4);
+        favoritesDao.create(favorite4);
+        
+        //READ
         Users u1 = usersDao.getUserByUserName("a");
         System.out.format("Reading user: u:%s f:%s l:%s \n",
             u1.getUserName(), u1.getFirstName(), u1.getLastName());
@@ -179,6 +227,39 @@ public class Inserter {
         }
         
         
+        System.out.println();
+        int questionId = 1;
+        Questions q1 = questionsDao.getQuestionById(questionId);
+        System.out.format("Reading question: id:%d content:%s createdTime:%s productName:%s username:%s \n",
+        		questionId, q1.getContent(), q1.getCreated(), q1.getProduct().getProductName(), q1.getUser().getUserName());
+        
+        System.out.println();
+        int answerId = 1;
+        Answers a1 = answersDao.getAnswerById(answerId);
+        System.out.format("Reading answer: id:%d content:%s createdTime:%s productName:%s  username:%s\n",
+        		answerId, a1.getContent(), a1.getCreated(), a1.getQuestion().getQuestionId(), a1.getUser().getUserName());
+        
+        System.out.println();
+        int recommendationId = 1;
+        Recommendations re1 = recommendationsDao.getRecommendationById(recommendationId);
+        System.out.format("Reading recommendation: id:%d productName:%s username:%s\n",
+        		recommendationId, re1.getProduct().getProductName(), re1.getUser().getUserName());
+        
+        System.out.println();
+        int favoriteId = 1;
+        Favorites fa1 = favoritesDao.getFavoriteById(favoriteId);
+        System.out.format("Reading favorite: id:%d productName:%s username:%s \n",
+        		favoriteId, fa1.getProduct().getProductName(), fa1.getUser().getUserName());
+        
+        System.out.println();
+        List<Questions> qList = questionsDao.getQuestionsByProductId("p1");
+        for (Questions r : qList) {
+        	 System.out.format("Reading questionsList: id:%d content:%s createdTime:%s productName:%s username:%s \n",
+             		questionId, q1.getContent(), q1.getCreated(), q1.getProduct().getProductName(), q1.getUser().getUserName());
+             
+        }
+        
+        
         
         // UPDATE
         System.out.println();
@@ -204,50 +285,50 @@ public class Inserter {
       
         
         
-        // DELETE
-        System.out.println();
-        usersDao.delete(user2);
-        Users u2 = usersDao.getUserByUserName("b");
-        if (u2 == null) {
-            System.out.println("delete user: success");
-        } else {
-            System.out.println("delete user: failed");
-        }
-        
-        System.out.println();
-        brandsDao.delete(brand);
-        Brands b = brandsDao.getBrandByBrandName("brand1");
-        if (b == null) {
-            System.out.println("delete brand: success");
-        } else {
-            System.out.println("delete brand: failed");
-        }
-        
-        System.out.println();
-        productsDao.delete(product);
-        Products p = productsDao.getProductById("p1");
-        if (p == null) {
-            System.out.println("delete product: success");
-        } else {
-            System.out.println("delete product: failed");
-        }
-        
-        System.out.println();
-        reviewsDao.delete(review9);
-        Reviews r = reviewsDao.getReviewById(9);
-        if (r == null) {
-            System.out.println("delete review: success");
-        } else {
-            System.out.println("delete review: failed");
-        }
-        
-        System.out.println();
-        reviewCommentsDao.delete(reviewComment5);
-        ReviewComments rrcc = reviewCommentsDao.getCommentById(5);
-        if (rrcc == null) {
-            System.out.println("delete reviewComment: success");
-        } else {
-            System.out.println("delete reviewComment: failed");
-        }
+//        // DELETE
+//        System.out.println();
+//        usersDao.delete(user2);
+//        Users u2 = usersDao.getUserByUserName("b");
+//        if (u2 == null) {
+//            System.out.println("delete user: success");
+//        } else {
+//            System.out.println("delete user: failed");
+//        }
+//        
+//        System.out.println();
+//        brandsDao.delete(brand);
+//        Brands b = brandsDao.getBrandByBrandName("brand1");
+//        if (b == null) {
+//            System.out.println("delete brand: success");
+//        } else {
+//            System.out.println("delete brand: failed");
+//        }
+//        
+//        System.out.println();
+//        productsDao.delete(product);
+//        Products p = productsDao.getProductById("p1");
+//        if (p == null) {
+//            System.out.println("delete product: success");
+//        } else {
+//            System.out.println("delete product: failed");
+//        }
+//        
+//        System.out.println();
+//        reviewsDao.delete(review9);
+//        Reviews r = reviewsDao.getReviewById(9);
+//        if (r == null) {
+//            System.out.println("delete review: success");
+//        } else {
+//            System.out.println("delete review: failed");
+//        }
+//        
+//        System.out.println();
+//        reviewCommentsDao.delete(reviewComment5);
+//        ReviewComments rrcc = reviewCommentsDao.getCommentById(5);
+//        if (rrcc == null) {
+//            System.out.println("delete reviewComment: success");
+//        } else {
+//            System.out.println("delete reviewComment: failed");
+//        }
     }
 }
