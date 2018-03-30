@@ -11,7 +11,7 @@
 <title>Find a Product</title>
 </head>
 <body>
-	<form action="findproducts" method="post">
+	<form action="findproducts" method="get">
 		<h1>Search for a Product by ProductName</h1>
 		<p>
 			<label for="productname">ProductName</label>

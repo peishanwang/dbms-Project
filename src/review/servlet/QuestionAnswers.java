@@ -17,16 +17,16 @@ import review.model.*;
 /**
  * Servlet implementation class ProductQuestions
  */
-@WebServlet("/questions")
-public class ProductQuestions extends HttpServlet {
-	QuestionsDao questionsDao;
+@WebServlet("/answers")
+public class QuestionAnswers extends HttpServlet {
+	AnswersDao answersDao;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
 	 @Override
 	    public void init() throws ServletException {
-		 questionsDao = QuestionsDao.getInstance();
+		 answersDao = AnswersDao.getInstance();
 	    }
 
     @Override
@@ -36,29 +36,29 @@ public class ProductQuestions extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
 
-        List<Questions> questions = new ArrayList<>();
+        List<Answers> answers = new ArrayList<>();
         
         // Retrieve and validate name.
         // product name is retrieved from the URL query string.
-        String productId = req.getParameter("productid");
-        if (productId == null || productId.trim().isEmpty()) {
+        String questionId = req.getParameter("questionid");
+        if (questionId == null || questionId.trim().isEmpty()) {
             messages.put("success", "Please enter a valid productId.");
         } else {
             // Retrieve Products, and store as a message.
             try {
-            	questions = questionsDao.getQuestionsByProductId(productId);
+            	answers = answersDao.getAnswersByQuestionId(Integer.valueOf(questionId));
             } catch (SQLException e) {
                 e.printStackTrace();
                 throw new IOException(e);
             }
-            messages.put("success", "Displaying results for " + productId);
+            messages.put("success", "Displaying results for " + questionId);
             // Save the previous search term, so it can be used as the default
             // in the input box when rendering FindUsers.jsp.
-            messages.put("previousProductName", productId);
+            messages.put("previousProductName", questionId);
         }
-        req.setAttribute("questions", questions);
+        req.setAttribute("answers", answers);
         
-        req.getRequestDispatcher("/ProductQuestions.jsp").forward(req, resp);
+        req.getRequestDispatcher("/QuestionAnswers.jsp").forward(req, resp);
     }
     
     @Override
@@ -68,26 +68,26 @@ public class ProductQuestions extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
 
-        List<Questions> questions = new ArrayList<>();
+        List<Answers> answers = new ArrayList<>();
         
         // Retrieve and validate name.
         // product name is retrieved from the form POST submission. By default, it
         // is populated by the URL query string (in FindProducts.jsp).
-        String productId = req.getParameter("productid");
-        if (productId == null || productId.trim().isEmpty()) {
+        String questionId = req.getParameter("questionid");
+        if (questionId == null || questionId.trim().isEmpty()) {
             messages.put("success", "Please enter a valid productId.");
         } else {
             // Retrieve Products, and store as a message.
             try {
-                questions = questionsDao.getQuestionsByProductId(productId);
+            	answers = answersDao.getAnswersByQuestionId(Integer.valueOf(questionId));
             } catch (SQLException e) {
                 e.printStackTrace();
                 throw new IOException(e);
             }
-            messages.put("success", "Displaying results for " + productId);
+            messages.put("success", "Displaying results for " + questionId);
         }
-        req.setAttribute("products", productId);
+        req.setAttribute("answers", answers);
         
-        req.getRequestDispatcher("/ProductQuestions.jsp").forward(req, resp);
+        req.getRequestDispatcher("/QuestionAnswers.jsp").forward(req, resp);
     }
 }

@@ -11,19 +11,8 @@
 <title>ProductQuestions</title>
 </head>
 <body>
-<form action="findquestions" method="post">
-		<h1>Search for questions by QuestionId</h1>
-		<p>
-			<label for="productId">ProductId</label>
-			<input id="productId" name="productId" value="${fn:escapeXml(param.productId)}">
-		</p>
-		<p>
-			<input type="submit">
-			<br/><br/><br/>
-			<span id="successMessage"><b>${messages.success}</b></span>
-		</p>
-	</form>
-	<br/>
+    <h1>Questions</h1>
+
 	<div id="questionCreate"><a href="questioncreate">Create Question</a></div>
 	<br/>
 	<h1>Matching Questions</h1>
@@ -34,6 +23,7 @@
                 <th>Created</th>
                 <th>UserName</th>
                 <th>ProductId</th>
+                <th>Answers</th>
             </tr>
             <c:forEach items="${questions}" var="question" >
                 <tr>
@@ -41,8 +31,8 @@
                     <td><c:out value="${question.getContent()}" /></td>
                     <td><c:out value="${question.getCreated()}" /></td>
                     <td><a href="user?username=<c:out value="${question.getUser().getUserName()}"/>">${question.getUser().getUserName()}</a></td>
-                    <td><a href="questions?productid=<c:out value="${question.getProductId()}"/>">Product</a></td>
-                    <td><a href="questiondelete?questionid=<c:out value="${question.getQuestionId()}"/>">Delete</a></td>
+                    <td><a href="questions?productid=<c:out value="${question.getProduct().getProductId()}"/>">${question.getProduct().getProductId()}</a></td>
+                    <td><a href="answers?questionid=<c:out value="${question.getQuestionId()}"/>">Answers</a></td>
                 </tr>
             </c:forEach>
        </table>
