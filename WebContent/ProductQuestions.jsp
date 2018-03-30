@@ -31,7 +31,7 @@
                     <td><c:out value="${question.getContent()}" /></td>
                     <td><c:out value="${question.getCreated()}" /></td>
                     <td><a href="user?username=<c:out value="${question.getUser().getUserName()}"/>">${question.getUser().getUserName()}</a></td>
-                    <td><a href="questions?productid=<c:out value="${question.getProduct().getProductId()}"/>">${question.getProduct().getProductId()}</a></td>
+                    <td><a href="product?productid=<c:out value="${question.getProduct().getProductId()}"/>">${question.getProduct().getProductId()}</a></td>
                     <td><a href="answers?questionid=<c:out value="${question.getQuestionId()}"/>">Answers</a></td>
                 </tr>
             </c:forEach>
