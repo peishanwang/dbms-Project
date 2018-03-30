@@ -35,22 +35,39 @@ public class ProductReviews extends HttpServlet {
         
         // Retrieve and validate UserName.
         String productId = req.getParameter("productid");
-        if (productId == null || productId.trim().isEmpty()) {
-            messages.put("title", "Invalid product id.");
+        String userName = req.getParameter("username");
+        if (isValid(productId) && isValid(userName)) {
+            messages.put("title", "Invalid parameters.");
+        } else if (!isValid(productId) && !isValid(userName)) {
+        	messages.put("title", "Lack of parameters");
+        } else if (isValid(productId)) {
+        	messages.put("title", "Reviews for " + productId);
         } else {
-            messages.put("title", "Reviews for " + productId);
+        	messages.put("title", "Reviews for " + userName);
         }
         
         // Retrieve Reviews, and store in the request.
         List<Reviews> reviews = new ArrayList<>();
         try {
-            Products product = new Products(productId);
-            reviews = reviewsDao.getReviewForProduct(product);
+        	if (isValid(productId)) {
+        		Products product = new Products(productId);
+        		reviews = reviewsDao.getReviewForProduct(product);
+            	
+            } else {
+            	Users user = new Users(userName);
+            	reviews = reviewsDao.getReviewForUser(user);
+            		
+            }
+            
         } catch (SQLException e) {
             e.printStackTrace();
             throw new IOException(e);
         }
         req.setAttribute("reviews", reviews);
         req.getRequestDispatcher("/ProductReviews.jsp").forward(req, resp);
+    }
+    
+    private boolean isValid(String string) {
+    	return string != null && !string.trim().isEmpty();
     }
 }

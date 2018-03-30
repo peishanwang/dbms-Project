@@ -8,27 +8,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Find a Product</title>
 </head>
 <body>
-	<form action="findproducts" method="get">
-		<h1>Search for a Product by ProductName</h1>
-		<p>
-			<label for="productname">ProductName</label>
-			<input id="productname" name="productname" value="${fn:escapeXml(param.productname)}">
-		</p>
-		<p>
-			<input type="submit">
-			<br/><br/><br/>
+	<div class="container theme=showcase" role="main">
+		<form action="findproducts" method="get">
+			<div class="jumbotron">
+				<h2>Search for a Product by ProductName</h2>
+			</div>
+			<p>
+				<h3><label for="productname">ProductName</label></h3>
+				<input id="productname" name="productname" value="${fn:escapeXml(param.productname)}">
+			</p>
+			<p>
+				<input type="submit" class="btn btn-primary">
+				<br/><br/><br/>
+			</p>
+		</form>
+		<div class="alert alert-info" role="alert">
 			<span id="successMessage"><b>${messages.success}</b></span>
-		</p>
-	</form>
-	<br/>
-	<div id="userCreate"><a href="usercreate">Create User</a></div>
-	<div id="productCreate"><a href="productcreate">Create Product</a></div>
-	<div id="brandCreate"><a href="brandcreate">Create Brand</a></div>
-	<br/>
-	<h1>Matching Products</h1>
+		</div>
+		<br/>
+		<div id="userCreate"><a href="usercreate">Create User</a></div>
+		<div id="productCreate"><a href="productcreate">Create Product</a></div>
+		<div id="brandCreate"><a href="brandcreate">Create Brand</a></div>
+		<br/>
+		<h1>Matching Products</h1>
         <table border="1">
             <tr>
                 <th>ProductId</th>
@@ -41,5 +47,10 @@
                 </tr>
             </c:forEach>
        </table>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
