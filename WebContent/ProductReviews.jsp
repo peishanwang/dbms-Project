@@ -12,29 +12,34 @@
 </head>
 <body>
 	<h1>${messages.title}</h1>
-        <table border="1">
+	<br/>
+    <div id="reviewCreate">
+          <a href="reviewcreate?productid=<c:out value="${fn:escapeXml(param.productid)}"/>">Create Review</a>
+    </div>
+    <br/>
+    <table border="1">
+        <tr>
+            <th>ReviewId</th>
+            <th>Summary</th>
+            <th>Content</th>
+            <th>Created</th>
+            <th>User</th>
+            <th>Rating</th>
+            <th>Comments</th>
+            <th>Delete Review</th>
+        </tr>
+        <c:forEach items="${reviews}" var="review" >
             <tr>
-                <th>ReviewId</th>
-                <th>Summary</th>
-                <th>Content</th>
-                <th>Created</th>
-                <th>User</th>
-                <th>Rating</th>
-                <th>Comments</th>
-                <th>Delete Review</th>
+                <td><c:out value="${review.getReviewId()}" /></td>
+                <td><c:out value="${review.getSummary()}" /></td>
+                <td><c:out value="${review.getContent()}" /></td>
+                <td><fmt:formatDate value="${review.getCreated()}" pattern="MM-dd-yyyy hh:mm:sa"/></td>
+                <td><a href="user?username=<c:out value="${review.getUser().getUserName()}"/>">${review.getUser().getUserName()}</a></td>
+                <td><c:out value="${review.getRating()}" /></td>
+                <td><a href="reviewcomments?reviewid=<c:out value="${review.getReviewId()}"/>">Comments</a></td>
+                <td><a href="reviewdelete?reviewid=<c:out value="${review.getReviewId()}"/>">Delete</a></td>
             </tr>
-            <c:forEach items="${reviews}" var="review" >
-                <tr>
-                    <td><c:out value="${review.getReviewId()}" /></td>
-                    <td><c:out value="${review.getSummary()}" /></td>
-                    <td><c:out value="${review.getContent()}" /></td>
-                    <td><fmt:formatDate value="${review.getCreated()}" pattern="MM-dd-yyyy hh:mm:sa"/></td>
-                    <td><a href="user?username=<c:out value="${review.getUser().getUsername()}"/>">${review.getUser().getUsername()}</a></td>
-                    <td><c:out value="${review.getRating()}" /></td>
-                    <td><a href="reviewcomments?reviewid=<c:out value="${review.getReviewId()}"/>">Comments</a></td>
-                    <td><a href="reviewdelete?reviewid=<c:out value="${review.getReviewId()}"/>">Delete</a></td>
-                </tr>
-            </c:forEach>
-       </table>
+        </c:forEach>
+   </table>
 </body>
 </html>

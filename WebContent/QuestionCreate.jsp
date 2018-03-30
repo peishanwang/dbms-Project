@@ -19,7 +19,7 @@
 		</p>
 		<p>
 			<label for="productid">ProductId</label>
-			<input id="productid" name="productid">
+			<input id="productid" name="productid" value="${fn:escapeXml(param.productid)}">
 		</p>
 		
 		<p>

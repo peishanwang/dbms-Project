@@ -12,6 +12,11 @@
 </head>
 <body>
 	<h1>${messages.title}</h1>
+	<br/>
+	<div id="reviewCommentCreate">
+          <a href="reviewcommentcreate?reviewid=<c:out value="${fn:escapeXml(param.reviewid)}"/>">Create Review Comment</a>
+    </div>
+    <br/>
         <table border="1">
             <tr>
                 <th>CommentId</th>
