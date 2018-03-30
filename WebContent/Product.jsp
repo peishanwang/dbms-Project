@@ -29,7 +29,7 @@
                 <td><c:out value="${product.getProductId()}" /></td>
                 <td><c:out value="${product.getProductName()}" /></td>
                 <td><c:out value="${product.getDescription()}" /></td>
-                <td><a href="brand?brandname=<c:out value="${product.getBrand().getBrandName()}"/>">Brand</a></td>
+                <td><a href="brand?brandname=<c:out value="${product.getBrand().getBrandName()}"/>">${product.getBrand().getBrandName()}</a></td>
                 <td><c:out value="${product.getPrice()}" /></td>
                 <td><a href="questions?productid=<c:out value="${product.getProductId()}"/>">Questions</a></td>
                 <td><a href="reviews?productid=<c:out value="${product.getProductId()}"/>">Reviews</a></td>
