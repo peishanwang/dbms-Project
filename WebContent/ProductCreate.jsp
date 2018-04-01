@@ -11,7 +11,9 @@
 <title>Create a Product</title>
 </head>
 <body>
+    <div class="jumbotron">
 	<h1>Create Product</h1>
+	</div>
 	<form action="productcreate" method="post">
 		<p>
 			<label for="productid">ProductId</label>
@@ -34,7 +36,7 @@
 			<input id="price" name="price" value="">
 		</p>
 		<p>
-			<input type="submit">
+			<input type="submit" class="btn btn-primary">
 		</p>
 	</form>
 	<br/><br/>

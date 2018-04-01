@@ -8,12 +8,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>ProductQuestions</title>
 </head>
 <body>
-    <h1>Questions</h1>
+<div class="container theme=showcase" role="main">
+    <div class="jumbotron">
+       <h1>Questions</h1>
+    </div>
 
-	<div id="questionCreate"><a href="questioncreate?productid=<c:out value="${fn:escapeXml(param.productid)}"/>">Create Question</a></div>
+	<div id="questionCreate"><a class="btn btn-primary" href="questioncreate?productid=<c:out value="${fn:escapeXml(param.productid)}"/>">Create Question</a></div>
 	<br/>
 	<h1>Matching Questions</h1>
         <table border="1">
@@ -36,6 +40,7 @@
                 </tr>
             </c:forEach>
        </table>
+       </div>
 
 </body>
 </html>

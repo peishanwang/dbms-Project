@@ -8,10 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Create a Follow Relationship</title>
 </head>
 <body>
-	<h1>Create Follow</h1>
+<div class="container theme=showcase" role="main">
+	<div class="jumbotron text-center">
+	    <h1>Create Follow</h1>
+	</div>
 	<form action="followcreate" method="post">
 		<p>
 			<label for="follower">Follower</label>
@@ -22,12 +26,16 @@
 			<input id="followee" name="followee" value="${fn:escapeXml(param.followee)}">
 		</p>
 		<p>
-			<input type="submit">
+			<input type="submit" class="btn btn-primary">
 		</p>
 	</form>
 	<br/><br/>
 	<p>
+	<div class="alert alert-info" role="alert">
 		<span id="successMessage"><b>${messages.success}</b></span>
+		</div>
 	</p>
+		<div id="questionCreate"><a class="btn btn-danger" href="followings">Go Back</a></div>
+	</div>
 </body>
 </html>

@@ -8,10 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Delete a Follow Relationship</title>
 </head>
 <body>
+<div class="container theme=showcase" role="main">
+	<div class="alert alert-info" role="alert">
 	<h1>${messages.title}</h1>
+	</div>
 	<form action="followdelete" method="post">
 		<p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
@@ -21,11 +25,11 @@
 		</p>
 		<p>
 			<span id="submitButton" <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
-			<input type="submit">
+			<input type="submit" class="btn btn-primary">
 			</span>
 		</p>
 	</form>
 	<br/><br/>
-	
+	</div>
 </body>
 </html>

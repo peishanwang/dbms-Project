@@ -8,13 +8,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Followings</title>
 </head>
 <body>
+<div class="container theme=showcase" role="main">
+	<div class="alert alert-info" role="alert">
 	<h1>${messages.title}</h1>
+	</div>
 	<br/>
     <div id="followCreate">
-          <a href="followcreate?follower=<c:out value="${fn:escapeXml(param.username)}"/>">Add Following</a>
+          <a class="btn btn-primary" href="followcreate?follower=<c:out value="${fn:escapeXml(param.username)}"/>">Add Following</a>
     </div>
     <table border="1">
         <tr>
@@ -30,5 +34,6 @@
             </tr>
         </c:forEach>
    </table>
+   </div>
 </body>
 </html>

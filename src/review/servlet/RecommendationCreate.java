@@ -6,6 +6,7 @@ import review.model.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.annotation.*;
@@ -53,9 +54,22 @@ public class RecommendationCreate extends HttpServlet {
             try {
             	Users user = usersDao.getUserByUserName(username);
             	Products product = productsDao.getProductById(productId);
+            	List<Recommendations> recommendations = recommendationsDao.getRecommendationsByUserName(username);
+            	boolean isExist = false;
+            	for (Recommendations r : recommendations) {
+            		if (r.getProduct().getProductId().equals(productId)) {
+            			isExist = true;
+            			
+            		}
+            	}
+            	if (isExist) {
+            		messages.put("success", "Already recommend");
+            	}
+            	else {
             	Recommendations recommendation = new Recommendations(user, product);
 	        	recommendationsDao.create(recommendation);
 	        	messages.put("success", "Successfully created ");
+            	}
 	        } catch (SQLException e) {
 				e.printStackTrace();
 				throw new IOException(e);

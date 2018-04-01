@@ -8,11 +8,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>RecommendationCreate</title>
 </head>
 <body>
+<div class="container theme=showcase" role="main">
 <form action="recommendationcreate" method="post">
+    <div class="jumbotron">
 		<h1>Create a question</h1>
+		</div>
 		<p>
 			<label for="username">UserName</label>
 			<input id="username" name="username" value="${fn:escapeXml(param.username)}">
@@ -23,12 +27,15 @@
 		</p>
 		
 		<p>
-			<input type="submit">
+			<input type="submit" class="btn btn-primary">
 			<br/><br/><br/>
+				<div class="alert alert-info" role="alert">
 			<span id="successMessage"><b>${messages.success}</b></span>
+			</div>
 		</p>
 	</form>
 	<br/>
-
+		<div id="questionCreate"><a class="btn btn-danger" href="recommendations">Go Back</a></div>
+</div>
 </body>
 </html>

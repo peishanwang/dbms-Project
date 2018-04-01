@@ -8,12 +8,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Recommendations</title>
 </head>
 <body>
-    <h1>Recommendations</h1>
+<div class="container theme=showcase" role="main">
+     <div class="jumbotron">
+      <h1>Recommendations</h1>
+    </div>
 
-	<div id="recommendationCreate"><a href="recommendationcreate">Create Recommendation</a></div>
+	<div id="recommendationCreate"><a class="btn btn-primary" href="recommendationcreate">Create Recommendation</a></div>
 	<br/>
 	<h1>Matching Recommendation</h1>
         <table border="1">
@@ -31,6 +35,6 @@
                 </tr>
             </c:forEach>
        </table>
-
+</div>
 </body>
 </html>
