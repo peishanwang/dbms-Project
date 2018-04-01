@@ -58,34 +58,34 @@ public class FindProduct extends HttpServlet {
         req.getRequestDispatcher("/FindProducts.jsp").forward(req, resp);
     }
     
-//    @Override
-//    public void doPost(HttpServletRequest req, HttpServletResponse resp)
-//            throws ServletException, IOException {
-//        // Map for storing messages.
-//        Map<String, String> messages = new HashMap<String, String>();
-//        req.setAttribute("messages", messages);
-//
-//        List<Products> products = new ArrayList<>();
-//        
-//        // Retrieve and validate name.
-//        // product name is retrieved from the form POST submission. By default, it
-//        // is populated by the URL query string (in FindProducts.jsp).
-//        String productName = req.getParameter("productname");
-//        if (productName == null || productName.trim().isEmpty()) {
-//            messages.put("success", "Please enter a valid name.");
-//        } else {
-//            // Retrieve Products, and store as a message.
-//            try {
-//                products = productsDao.getProductByProductName(productName);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//                throw new IOException(e);
-//            }
-//            messages.put("success", "Displaying results for " + productName);
-//        }
-//        req.setAttribute("products", products);
-//        
-//        req.getRequestDispatcher("/FindProducts.jsp").forward(req, resp);
-//    }
+    @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        // Map for storing messages.
+        Map<String, String> messages = new HashMap<String, String>();
+        req.setAttribute("messages", messages);
+
+        List<Products> products = new ArrayList<>();
+        
+        // Retrieve and validate name.
+        // product name is retrieved from the form POST submission. By default, it
+        // is populated by the URL query string (in FindProducts.jsp).
+        String productName = req.getParameter("productname");
+        if (productName == null || productName.trim().isEmpty()) {
+            messages.put("success", "Please enter a valid name.");
+        } else {
+            // Retrieve Products, and store as a message.
+            try {
+                products = productsDao.getProductByProductName(productName);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                throw new IOException(e);
+            }
+            messages.put("success", "Displaying results for " + productName);
+        }
+        req.setAttribute("products", products);
+        
+        req.getRequestDispatcher("/FindProducts.jsp").forward(req, resp);
+    }
 }
     

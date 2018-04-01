@@ -8,11 +8,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Brand</title>
 </head>
 <body>
-	<h1>${messages.title}</h1>
-        <table border="1">
+	<div class="container theme=showcase" role="main">
+		<div class="jumbotron text-center">
+			<h1>${messages.title}</h1>
+		</div>
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>BrandName</th>
                 <th>Description</th>
@@ -26,5 +30,10 @@
                 <td><a href="branddelete?brandname=<c:out value="${brand.getBrandName()}"/>">Delete</a></td>
             </tr>
        </table>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

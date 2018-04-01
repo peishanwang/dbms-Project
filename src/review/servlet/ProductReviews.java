@@ -38,12 +38,16 @@ public class ProductReviews extends HttpServlet {
         String userName = req.getParameter("username");
         if (isValid(productId) && isValid(userName)) {
             messages.put("title", "Invalid parameters.");
+            messages.put("title2", "");
         } else if (!isValid(productId) && !isValid(userName)) {
         	messages.put("title", "Lack of parameters");
+            messages.put("title2", "");
         } else if (isValid(productId)) {
-        	messages.put("title", "Reviews for " + productId);
+        	messages.put("title", "Reviews for Product");
+        	messages.put("title2", "ProductId: " + productId);
         } else {
-        	messages.put("title", "Reviews for " + userName);
+        	messages.put("title", "Reviews Created by User");
+            messages.put("title2", "Username: " + userName);
         }
         
         // Retrieve Reviews, and store in the request.

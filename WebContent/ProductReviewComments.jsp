@@ -8,16 +8,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>ReviewComments</title>
 </head>
 <body>
-	<h1>${messages.title}</h1>
-	<br/>
-	<div id="reviewCommentCreate">
-          <a href="reviewcommentcreate?reviewid=<c:out value="${fn:escapeXml(param.reviewid)}"/>">Create Review Comment</a>
-    </div>
-    <br/>
-        <table border="1">
+	<div class="container theme=showcase" role="main">
+		<div class="jumbotron text-center">
+			<h1>${messages.title}</h1>
+			<h1><small>${messages.title2}</small></h1>
+		</div>
+		<br/>
+		<div id="reviewCommentCreate">
+	    	<a href="reviewcommentcreate?reviewid=<c:out value="${fn:escapeXml(param.reviewid)}"/>">Create Review Comment</a>
+	    </div>
+	    <br/>
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>CommentId</th>
                 <th>ReviewId</th>
@@ -35,5 +40,10 @@
                 </tr>
             </c:forEach>
        </table>
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

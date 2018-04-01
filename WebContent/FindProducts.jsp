@@ -13,9 +13,10 @@
 </head>
 <body>
 	<div class="container theme=showcase" role="main">
-		<form action="findproducts" method="get">
-			<div class="jumbotron">
-				<h2>Search for a Product by ProductName</h2>
+		<form action="findproducts" method="post">
+			<div class="jumbotron text-center">
+				<h1>Search for a Product</h1> 
+				<h1><small>by ProductName</small></h1>
 			</div>
 			<p>
 				<h3><label for="productname">ProductName</label></h3>
@@ -35,7 +36,7 @@
 		<div id="brandCreate"><a href="brandcreate">Create Brand</a></div>
 		<br/>
 		<h1>Matching Products</h1>
-        <table border="1">
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>ProductId</th>
                 <th>ProductName</th>

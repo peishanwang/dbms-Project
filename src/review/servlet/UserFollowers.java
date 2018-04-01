@@ -37,8 +37,10 @@ public class UserFollowers extends HttpServlet {
         String username = req.getParameter("username");
         if (username == null || username.trim().isEmpty()) {
             messages.put("title", "Invalid username.");
+            messages.put("title2", "");
         } else {
-            messages.put("title", "Followers for " + username);
+            messages.put("title", "Followers of User");
+            messages.put("title2", "Username: " + username);
         }
         
         // Retrieve Follows, and store in the request.

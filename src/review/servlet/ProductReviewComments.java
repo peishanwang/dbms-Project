@@ -43,9 +43,11 @@ public class ProductReviewComments extends HttpServlet {
                 // If the postid param is provided then ignore the username param.
                 Reviews review = new Reviews(Integer.parseInt(reviewId));
                 reviewComments = reviewCommentsDao.getReviewCommentsForReview(review);
-                messages.put("title", "ReviewComments for ReviewId " + reviewId);
+                messages.put("title", "Comments of Review");
+                messages.put("title2", "Review Id: " + reviewId);
             } else {
                 messages.put("title", "Invalid ReviewId.");
+                messages.put("title2", "");
             }
         } catch (SQLException e) {
             e.printStackTrace();
