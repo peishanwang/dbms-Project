@@ -8,30 +8,35 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Create a Review Comment</title>
 </head>
 <body>
-	<h1>Create Review Comment</h1>
-	<form action="reviewcommentcreate" method="post">
-		<p>
-			<label for="reviewid">ReviewId</label>
-			<input id="reviewid" name="reviewid" value="${fn:escapeXml(param.reviewid)}">
-		</p>
-		<p>
-			<label for="username">UserName</label>
-			<input id="username" name="username" value="">
-		</p>
-		<p>
-			<label for="helpful">Helpful (yes or no)</label>
-			<input id="helpful" name="helpful" value="">
-		</p>
-		<p>
-			<input type="submit">
-		</p>
-	</form>
-	<br/><br/>
-	<p>
-		<span id="successMessage"><b>${messages.success}</b></span>
-	</p>
+	<div class="container theme=showcase" role="main">
+		<div class="jumbotron text-center">
+			<h1>Create Review Comment</h1>
+		</div>
+		<form action="reviewcommentcreate" method="post">
+			<p>
+				<label for="reviewid">ReviewId</label>
+				<input id="reviewid" name="reviewid" value="${fn:escapeXml(param.reviewid)}">
+			</p>
+			<p>
+				<label for="username">UserName</label>
+				<input id="username" name="username" value="">
+			</p>
+			<p>
+				<label for="helpful">Helpful (yes or no)</label>
+				<input id="helpful" name="helpful" value="">
+			</p>
+			<p>
+				<input type="submit" class="btn btn-primary">
+			</p>
+		</form>
+		<br/><br/>
+		<div class="alert alert-info">
+			<span id="successMessage"><b>${messages.success}</b></span>
+		</div>
+	</div>
 </body>
 </html>

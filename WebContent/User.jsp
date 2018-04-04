@@ -33,7 +33,7 @@
                 <td><a href="followings?username=<c:out value="${user.getUserName()}"/>">Followings</a></td>
                 <td><a href="reviews?username=<c:out value="${user.getUserName()}"/>">Reviews</a></td>
                 <td><a href="recommendations?username=<c:out value="${user.getUserName()}"/>">Recommendations</a></td>
-                <td><a href="brand?brandname=<c:out value="${user.getUserName()}"/>">Favorite</a></td>
+                <td><a href="favorites?username=<c:out value="${user.getUserName()}"/>">Favorite</a></td>
                 <td><a href="userdelete?username=<c:out value="${user.getUserName()}"/>">Delete</a></td>
                 <td><a href="userupdate?username=<c:out value="${user.getUserName()}"/>">Update</a></td>
             </tr>

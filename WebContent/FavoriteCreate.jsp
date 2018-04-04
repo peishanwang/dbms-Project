@@ -8,26 +8,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Create a Favorite</title>
 </head>
 <body>
-	<h1>Create Favorite</h1>
-	<form action="favoritecreate" method="post">
-		<p>
-			<label for="username">UserName</label>
-			<input id="username" name="username" value="${fn:escapeXml(param.username)}">
-		</p>
-		<p>
-			<label for="productid">ProductId</label>
-			<input id="productid" name="productid" value="">
-		</p>
-		<p>
-			<input type="submit">
-		</p>
-	</form>
-	<br/><br/>
-	<p>
-		<span id="successMessage"><b>${messages.success}</b></span>
-	</p>
+	<div class="container theme=showcase" role="main">
+		<div class="jumbotron text-center">
+			<h1>Create Favorite</h1>
+		</div>
+		<form action="favoritecreate" method="post">
+			<p>
+				<label for="username">UserName</label>
+				<input id="username" name="username" value="${fn:escapeXml(param.username)}">
+			</p>
+			<p>
+				<label for="productid">ProductId</label>
+				<input id="productid" name="productid" value="">
+			</p>
+			<p>
+				<input type="submit" class="btn btn-primary">
+			</p>
+		</form>
+		<br/><br/>
+		<div class="alert alert-info">
+			<span id="successMessage"><b>${messages.success}</b></span>
+		</div>
+	</div>
 </body>
 </html>
