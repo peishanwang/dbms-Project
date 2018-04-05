@@ -19,7 +19,7 @@
 		</div>
 		<br/>
 		<div id="reviewCommentCreate">
-	    	<a href="reviewcommentcreate?reviewid=<c:out value="${fn:escapeXml(param.reviewid)}"/>">Create Review Comment</a>
+	    	<a class="btn btn-primary" href="reviewcommentcreate?reviewid=<c:out value="${fn:escapeXml(param.reviewid)}"/>">Create Review Comment</a>
 	    </div>
 	    <br/>
         <table class="table table-striped table-bordered">

@@ -35,7 +35,6 @@
 		</p>
 	</form>
 	<br/>
-		<div id="questionCreate"><a class="btn btn-danger" href="recommendations">Go Back</a></div>
 </div>
 </body>
 </html>

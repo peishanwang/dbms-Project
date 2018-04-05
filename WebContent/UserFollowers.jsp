@@ -19,7 +19,8 @@
 		</div>
 		<br/>
 	    <div id="followCreate">
-	          <a href="followcreate?followee=<c:out value="${fn:escapeXml(param.username)}"/>">Add Follower</a>
+	          <a class="btn btn-primary" 
+	          href="followcreate?followee=<c:out value="${fn:escapeXml(param.username)}"/>">Add Follower</a>
 	    </div>
 	    <br/>
 	    <table class="table table-striped table-bordered">

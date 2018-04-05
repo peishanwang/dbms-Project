@@ -32,12 +32,12 @@
 		</p>
 		<p>
 			<input type="submit" class="btn btn-primary">
-			<br/><br/><br/>
-			<span id="successMessage"><b>${messages.success}</b></span>
 		</p>
 	</form>
-	<br/>
-	<div id="questionCreate"><a class="btn btn-danger" href="questions">Go Back</a></div>
+	<br/><br/>
+	<div class="alert alert-info">
+				<span id="successMessage"><b>${messages.success}</b></span>
+			</div>
 	</div>
 
 </body>

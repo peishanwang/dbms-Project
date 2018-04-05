@@ -8,11 +8,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>User</title>
 </head>
 <body>
-	<h1>${messages.title}</h1>
-        <table border="1">
+	<div class="container theme=showcase" role="main">
+		<div class="jumbotron text-center">
+			<h1>${messages.title}</h1>
+		</div>
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>UserName</th>
                 <th>FirstName</th>
@@ -37,7 +41,7 @@
                 <td><a href="userdelete?username=<c:out value="${user.getUserName()}"/>">Delete</a></td>
                 <td><a href="userupdate?username=<c:out value="${user.getUserName()}"/>">Update</a></td>
             </tr>
-
        </table>
+       </div>
 </body>
 </html>

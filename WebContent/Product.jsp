@@ -8,11 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Product</title>
 </head>
-<body>
-	<h1>${messages.title}</h1>
-        <table border="1">
+<body><div class="container theme=showcase" role="main">
+		<div class="jumbotron text-center">
+			<h1>${messages.title}</h1>
+		</div>
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>ProductId</th>
                 <th>ProductName</th>
@@ -37,7 +40,7 @@
                 <td><a href="productdelete?productid=<c:out value="${product.getProductId()}"/>">Delete</a></td>
                 <td><a href="productupdate?productid=<c:out value="${product.getProductId()}"/>">Update</a></td>
             </tr>
-
        </table>
+       </div>
 </body>
 </html>

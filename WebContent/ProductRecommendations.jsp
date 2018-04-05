@@ -20,7 +20,7 @@
 	<div id="recommendationCreate"><a class="btn btn-primary" href="recommendationcreate">Create Recommendation</a></div>
 	<br/>
 	<h1>Matching Recommendation</h1>
-        <table border="1">
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>RecommendationId</th>
                 <th>UserName</th>

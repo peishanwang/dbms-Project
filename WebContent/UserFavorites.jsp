@@ -16,6 +16,11 @@
 		<div class="jumbotron text-center">
 			<h1>${messages.title}</h1>
 		</div>
+		<br/>
+		<div id="favoriteCreate">
+           <a class="btn btn-primary" href="favoritecreate?username=<c:out value="${fn:escapeXml(param.username)}"/>">Create Favorite</a>
+       </div>
+       <br/>
         <table class="table table-striped table-bordered">
             <tr>
                 <th>FavoriteId</th>
@@ -31,9 +36,6 @@
             </c:forEach>
        </table>
        <br/>
-       <div id="favoriteCreate">
-           <a href="favoritecreate?username=<c:out value="${fn:escapeXml(param.username)}"/>">Create Favorite</a>
-       </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

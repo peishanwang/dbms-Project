@@ -8,10 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Update a Product</title>
 </head>
 <body>
-	<h1>Update Product</h1>
+<div class="container theme=showcase" role="main">
+	<div class="jumbotron">
+		<h1>Update Product</h1>
+	</div>
 	<form action="productupdate" method="post">
 		<p>
 			<label for="productid">ProductId</label>
@@ -30,12 +34,13 @@
 			<input id="price" name="price" value="${product.getPrice()}">
 		</p>
 		<p>
-			<input type="submit">
+			<input type="submit" class="btn btn-primary">
 		</p>
 	</form>
 	<br/><br/>
-	<p>
+	<div class="alert alert-info">
 		<span id="successMessage"><b>${messages.success}</b></span>
-	</p>
+	</div>
+</div>
 </body>
 </html>

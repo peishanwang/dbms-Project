@@ -18,6 +18,11 @@
 				<h1>Search for a Product</h1> 
 				<h1><small>by ProductName</small></h1>
 			</div>
+			<br/>
+				<p id="userCreate"><a class="btn btn-primary" href="usercreate">Create User</a></p>
+				<p id="productCreate"><a class="btn btn-primary" href="productcreate">Create Product</a></p>
+				<p id="brandCreate"><a class="btn btn-primary" href="brandcreate">Create Brand</a></p>
+			<br/>
 			<p>
 				<h3><label for="productname">ProductName</label></h3>
 				<input id="productname" name="productname" value="${fn:escapeXml(param.productname)}">
@@ -30,11 +35,7 @@
 		<div class="alert alert-info" role="alert">
 			<span id="successMessage"><b>${messages.success}</b></span>
 		</div>
-		<br/>
-		<div id="userCreate"><a href="usercreate">Create User</a></div>
-		<div id="productCreate"><a href="productcreate">Create Product</a></div>
-		<div id="brandCreate"><a href="brandcreate">Create Brand</a></div>
-		<br/>
+		
 		<h1>Matching Products</h1>
         <table class="table table-striped table-bordered">
             <tr>

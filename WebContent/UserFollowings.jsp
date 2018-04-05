@@ -20,7 +20,8 @@
     <div id="followCreate">
           <a class="btn btn-primary" href="followcreate?follower=<c:out value="${fn:escapeXml(param.username)}"/>">Add Following</a>
     </div>
-    <table border="1">
+    <br/>
+    <table class="table table-striped table-bordered">
         <tr>
             <th>FollowId</th>
             <th>Following</th>

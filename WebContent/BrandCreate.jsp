@@ -8,10 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Create a Brand</title>
 </head>
 <body>
+<div class="container theme=showcase" role="main">
+	<div class="jumbotron">
 	<h1>Create Brand</h1>
+	</div>
 	<form action="brandcreate" method="post">
 		<p>
 			<label for="brandname">BrandName</label>
@@ -22,12 +26,13 @@
 			<input id="description" name="description" value="">
 		</p>
 		<p>
-			<input type="submit">
+			<input type="submit" class="btn btn-primary">
 		</p>
 	</form>
 	<br/><br/>
-	<p>
+	<div class="alert alert-info">
 		<span id="successMessage"><b>${messages.success}</b></span>
-	</p>
+	</div>
+</div>
 </body>
 </html>

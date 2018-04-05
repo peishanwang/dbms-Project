@@ -20,7 +20,7 @@
 	<div id="questionCreate"><a class="btn btn-primary" href="questioncreate?productid=<c:out value="${fn:escapeXml(param.productid)}"/>">Create Question</a></div>
 	<br/>
 	<h1>Matching Questions</h1>
-        <table border="1">
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>QuestionId</th>
                 <th>Content</th>

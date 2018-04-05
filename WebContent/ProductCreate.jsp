@@ -7,10 +7,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Create a Product</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<title>Create a Product</title>
 </head>
 <body>
+<div class="container theme=showcase" role="main">
     <div class="jumbotron">
 	<h1>Create Product</h1>
 	</div>
@@ -40,8 +42,9 @@
 		</p>
 	</form>
 	<br/><br/>
-	<p>
+	<div class="alert alert-info">
 		<span id="successMessage"><b>${messages.success}</b></span>
-	</p>
+	</div>
+</div>
 </body>
 </html>

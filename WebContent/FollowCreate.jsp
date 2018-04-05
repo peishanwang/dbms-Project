@@ -35,7 +35,6 @@
 		<span id="successMessage"><b>${messages.success}</b></span>
 		</div>
 	</p>
-		<div id="questionCreate"><a class="btn btn-danger" href="followings">Go Back</a></div>
 	</div>
 </body>
 </html>
