@@ -41,11 +41,13 @@
             <tr>
                 <th>ProductId</th>
                 <th>ProductName</th>
+                <th>Rating</th>
             </tr>
             <c:forEach items="${products}" var="product" >
                 <tr>
                     <td><a href="product?productid=<c:out value="${product.getProductId()}" />">${product.getProductId()}</a></td>
                     <td><c:out value="${product.getProductName()}"/></td>
+                    <td><c:out value="${product.getAverageRating()}"/></td>
                 </tr>
             </c:forEach>
        </table>

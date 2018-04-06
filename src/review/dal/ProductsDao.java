@@ -202,9 +202,12 @@ public class ProductsDao {
 	public List<Products> getProductByProductName(String productName) throws SQLException {
 		List<Products> products = new ArrayList<>();
 		String selectBlogPost =
-			"SELECT ProductId,ProductName,Description,BrandName,Price " +
-			"FROM Products " +
-			"WHERE ProductName LIKE ?;";
+			"SELECT Products.ProductId,ProductName,Description,BrandName,Price,AVG(Rating) AS AVG_Rating "
+			+ "FROM Products INNER JOIN Reviews "
+			+ "WHERE Products.ProductId=Reviews.ProductId "
+			+ "GROUP BY Products.ProductId "
+			+ "HAVING Products.ProductName LIKE ? "
+			+ "ORDER BY AVG_Rating DESC;";
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
 		ResultSet results = null;
@@ -215,14 +218,15 @@ public class ProductsDao {
 			results = selectStmt.executeQuery();
 			BrandsDao brandsDao = BrandsDao.getInstance();
 			while(results.next()) {
-				String productId = results.getString("ProductId");
+				String productId = results.getString("Products.ProductId");
 				String originProductName = results.getString("ProductName");
 				String description = results.getString("Description");
 				String brandName = results.getString("BrandName");
 				Double price = results.getDouble("Price");
+				Double averageRating = results.getDouble("AVG_Rating");
 				
 				Brands brand = brandsDao.getBrandByBrandName(brandName);
-				Products product = new Products(productId, originProductName, description, brand, price);
+				Products product = new Products(productId, originProductName, description, brand, price, averageRating);
 				products.add(product);
 			}
 		} catch (SQLException e) {

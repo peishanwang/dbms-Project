@@ -6,6 +6,7 @@ public class Products {
 	protected String description;
 	protected Brands brand;
 	protected Double price;
+	protected Double averageRating;
 	
 	public Products(String productId, String productName, String description, Brands brand, Double price) {
 		this.productId = productId;
@@ -14,6 +15,15 @@ public class Products {
 		this.brand = brand;
 		this.price = price;
 	}
+	
+   public Products(String productId, String productName, String description, Brands brand, Double price, Double averageRating) {
+        this.productId = productId;
+        this.productName = productName;
+        this.description = description;
+        this.brand = brand;
+        this.price = price;
+        this.averageRating = averageRating;
+    }
 	
 	public Products(String productId) {
 		this.productId = productId;
@@ -59,6 +69,12 @@ public class Products {
 		this.price = price;
 	}
 	
-	
+    public Double getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(Double averageRating) {
+        this.averageRating = averageRating;
+    }
 	
 }
