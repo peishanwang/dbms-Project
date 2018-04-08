@@ -44,7 +44,7 @@ public class ProductReviews extends HttpServlet {
             messages.put("title2", "");
         } else if (isValid(productId)) {
         	messages.put("title", "Reviews for Product");
-        	messages.put("title2", "ProductId: " + productId);
+        	messages.put("title2", "Product ID: " + productId);
         } else {
         	messages.put("title", "Reviews Created by User");
             messages.put("title2", "Username: " + userName);

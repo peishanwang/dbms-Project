@@ -14,12 +14,15 @@
 <body>
 <div class="container theme=showcase" role="main">
     <div class="jumbotron">
-    <h1>Recommendations</h1>
+    	<h1>Recommendations By User</h1>
     </div>
+	<div id="recommendationCreate">
+		<a class="btn btn-primary" href="recommendationcreate?username=<c:out value="${fn:escapeXml(param.username)}"/>">Create Recommendation</a>
+	</div>
 
 	<br/>
 	<h1>Matching Recommendation</h1>
-        <table border="1">
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>RecommendationId</th>
                 <th>UserName</th>

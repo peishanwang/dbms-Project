@@ -36,8 +36,10 @@ public class Product extends HttpServlet {
         
         if (productId == null || productId.trim().isEmpty()) {
             messages.put("title", "Invalid product id.");
+            messages.put("title2", "");
         } else {
-            messages.put("title", "Product for " + productId);
+            messages.put("title", "Product Details");
+            messages.put("title2", "Product ID: " + productId);
         }
         
         Products product;

@@ -23,7 +23,7 @@
 			</p>
 			<p>
 				<label for="username">UserName</label>
-				<input id="username" name="username" value="">
+				<input id="username" name="username" value="${fn:escapeXml(param.username)}">
 			</p>
 			<p>
 				<label for="content">Content</label>

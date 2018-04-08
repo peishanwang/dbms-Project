@@ -15,7 +15,7 @@
 <div class="container theme=showcase" role="main">
 <form action="recommendationcreate" method="post">
     <div class="jumbotron">
-		<h1>Create a question</h1>
+		<h1>Create a Recommendation</h1>
 		</div>
 		<p>
 			<label for="username">UserName</label>
@@ -23,7 +23,7 @@
 		</p>
 		<p>
 			<label for="productid">ProductId</label>
-			<input id="productid" name="productid">
+			<input id="productid" name="productid" value="${fn:escapeXml(param.productid)}">
 		</p>
 		
 		<p>

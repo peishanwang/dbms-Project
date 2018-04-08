@@ -14,6 +14,7 @@
 <body><div class="container theme=showcase" role="main">
 		<div class="jumbotron text-center">
 			<h1>${messages.title}</h1>
+			<h1><small>${messages.title2}</small></h1>
 		</div>
         <table class="table table-striped table-bordered">
             <tr>

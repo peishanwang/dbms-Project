@@ -107,46 +107,45 @@ public class RecommendationsDao {
 		return null;
 	}
 	
-	public List<Recommendations> getRecommendationsByUserName(String userName) throws SQLException {
-		List<Recommendations> recommendations = new ArrayList<Recommendations>();
-		String selectRecommendation =
-			"SELECT RecommendationId,UserName,productId " +
-			"FROM Recommendations " +
-			"WHERE UserName=?;";
-		Connection connection = null;
-		PreparedStatement selectStmt = null;
-		ResultSet results = null;
-		try {
-			connection = connectionManager.getConnection();
-			selectStmt = connection.prepareStatement(selectRecommendation);
-			selectStmt.setString(1, userName);
-			results = selectStmt.executeQuery();
-			UsersDao usersDao = UsersDao.getInstance();
-			ProductsDao restaurantsDao = ProductsDao.getInstance();
-			while(results.next()) {
-				int resultRecommendationId = results.getInt("RecommendationId");
-				String productId = results.getString("productId");
-				
-				Users user = usersDao.getUserByUserName(userName);
-				Products restaurant = restaurantsDao.getProductById(productId);
-				Recommendations recommendation = new Recommendations(resultRecommendationId, user, restaurant);
-				recommendations.add(recommendation);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw e;
-		} finally {
-			if(connection != null) {
-				connection.close();
-			}
-			if(selectStmt != null) {
-				selectStmt.close();
-			}
-			if(results != null) {
-				results.close();
-			}
-		}
-		return recommendations;
+	public List<Recommendations> getRecommendationsByUserName(String username) throws SQLException {
+      List<Recommendations> recommendations = new ArrayList<Recommendations>();
+        String selectRecommendation =
+            "SELECT RecommendationId,UserName,ProductId " +
+            "FROM Recommendations " +
+            "WHERE UserName=?;";
+        Connection connection = null;
+        PreparedStatement selectStmt = null;
+        ResultSet results = null;
+        try {
+            connection = connectionManager.getConnection();
+            selectStmt = connection.prepareStatement(selectRecommendation);
+            selectStmt.setString(1, username);
+            results = selectStmt.executeQuery();
+            UsersDao usersDao = UsersDao.getInstance();
+            ProductsDao productsDao = ProductsDao.getInstance();
+            while(results.next()) {
+                int resultRecommendationId = results.getInt("RecommendationId");
+                String productId = results.getString("ProductId");
+                Users user = usersDao.getUserByUserName(username);
+                Products product = productsDao.getProductById(productId);
+                Recommendations recommendation = new Recommendations(resultRecommendationId, user, product);
+                recommendations.add(recommendation);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        } finally {
+            if(connection != null) {
+                connection.close();
+            }
+            if(selectStmt != null) {
+                selectStmt.close();
+            }
+            if(results != null) {
+                results.close();
+            }
+        }
+        return recommendations;
 	}
 	
 	public List<Recommendations> getRecommendationsByProductId(String productId) throws SQLException {
